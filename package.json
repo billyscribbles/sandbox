@@ -1,0 +1,42 @@
+{
+    "name": "sandbox",
+    "version": "1.0.0",
+    "private": true,
+    "repository": "",
+    "homepage": "",
+    "scripts": {
+        "start": "concurrently yarn:start:*",
+        "start:frontend": "yarn workspace frontend dev",
+        "start:mock": "yarn workspace mock start",
+        "lint": "yarn workspace frontend lint",
+        "format": "yarn workspace frontend run format",
+        "commit": "cross-env-shell yarn format && ./node_modules/.bin/git-cz"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js, ts, jsx, tsx, json, css, md}": [
+            "prettier --write"
+        ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "devDependencies": {
+        "commitizen": "^3.0.4",
+        "concurrently": "^6.2.0",
+        "cross-env": "6.0.3",
+        "husky": "^1.1.4",
+        "lint-staged": "^8.1.1",
+        "prettier": "^1.15.1"
+    },
+    "workspaces": [
+        "app/frontend",
+        "app/mock"
+    ]
+}
