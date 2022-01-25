@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './calculator.module.css';
 
 /* Planning
 
@@ -103,26 +104,28 @@ export default function calculator(): JSX.Element {
     };
 
     return (
-        <div className="calculator-grid">
+        <div className={styles.background}>
             <h1>My Calculator</h1>
-            <div>{equationToDisplay}</div>
-            <br />
-            {numberPadValues.map((numberPadValue, i) => {
-                return (
-                    <button key={i} onClick={handleNumberPadBtn} value={numberPadValue}>
-                        {numberPadValue}
-                    </button>
-                );
-            })}
-            <br /> <br />
-            <button onClick={handleClearBtn}>CLEAR</button>
-            <button onClick={handleOperationBtn} value={'+'}>
-                +
-            </button>
-            <button onClick={handleOperationBtn} value={'-'}>
-                -
-            </button>
-            <button onClick={handleEqualsBtn}>=</button>
+            <div className={styles.calculatorGrid}>
+                <div className={styles.output}>{equationToDisplay}</div>
+                <br />
+                {numberPadValues.map((numberPadValue, i) => {
+                    return (
+                        <button key={i} onClick={handleNumberPadBtn} value={numberPadValue}>
+                            {numberPadValue}
+                        </button>
+                    );
+                })}
+                <br /> <br />
+                <button onClick={handleClearBtn}>CLEAR</button>
+                <button onClick={handleOperationBtn} value={'+'}>
+                    +
+                </button>
+                <button onClick={handleOperationBtn} value={'-'}>
+                    -
+                </button>
+                <button onClick={handleEqualsBtn}>=</button>
+            </div>
         </div>
     );
 }
