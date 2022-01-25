@@ -1,4 +1,21 @@
 {
+    "accounts": [
+        {
+            "id": 1,
+            "displayName": "Peter Parker",
+            "email": "peterparker@email.com",
+            "photoURL": "",
+            "restaurant": "Sook Thai Kitchen"
+        },
+        {
+            "id": 2,
+            "displayName": "Clark Kent",
+            "email": "clarkkent@email.com",
+            "photoURL": "",
+            "restaurant": "Scoopy"
+        }
+    ]
+,
     "menus": [
         {
             "id": 1,
@@ -266,23 +283,6 @@
             "instagramURL": "https://www.instagram.com/taco101melbourne/",
             "facebookURL:": "",
             "reservation": []
-        }
-    ]
-,
-    "accounts": [
-        {
-            "id": 1,
-            "displayName": "Peter Parker",
-            "email": "peterparker@email.com",
-            "photoURL": "",
-            "restaurant": "Sook Thai Kitchen"
-        },
-        {
-            "id": 2,
-            "displayName": "Clark Kent",
-            "email": "clarkkent@email.com",
-            "photoURL": "",
-            "restaurant": "Scoopy"
         }
     ]
 }
