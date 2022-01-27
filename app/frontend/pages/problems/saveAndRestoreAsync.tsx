@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { debounce } from 'lodash';
+// import { debounce } from 'lodash';
+import { useDebounce } from '../../src/hooks/useDebounce/useDebounce';
 import styles from './saveAndRestore.module.css';
 
 interface IFormData {
@@ -105,9 +106,9 @@ export default function saveAndRestoreAsync(): JSX.Element {
         postAPI(myFormData);
     };
 
-    const debouncedHandleOnChange = debounce(async function({
-        target: { name, value }
-    }: React.ChangeEvent<HTMLInputElement>) {
+    const handleOnChange = async function(e: React.ChangeEvent<HTMLInputElement>) {
+        const name = e.target.name;
+        const value = e.target.value;
         const myFormData: IFormData = {
             ...formData,
             [name]: value
@@ -116,9 +117,12 @@ export default function saveAndRestoreAsync(): JSX.Element {
         if (JSON.stringify(myFormData) === JSON.stringify(previousFormData)) return;
 
         await postAPI(myFormData);
-        setFormData(prevState => ({ ...prevState, [name]: value }));
-    },
-    500);
+        setFormData(myFormData);
+    };
+
+    const debouncedHandleOnChange = function(e: React.ChangeEvent<HTMLInputElement>) {
+        useDebounce(handleOnChange(e), 500);
+    };
 
     return (
         <div className={styles.container}>
