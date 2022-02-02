@@ -3,16 +3,20 @@
         {
             "id": 1,
             "displayName": "Peter Parker",
+            "phone": "0435123123",
             "email": "peterparker@email.com",
+            "address": "123 Fake Street, Melbourne, VIC, 3000",
             "photoURL": "",
-            "restaurant": "Sook Thai Kitchen"
+            "favouriteFood": "Icecream"
         },
         {
             "id": 2,
             "displayName": "Clark Kent",
+            "phone": "0434666999",
             "email": "clarkkent@email.com",
+            "address": "99 Krypton Road, Melbourne, VIC, 3000",
             "photoURL": "",
-            "restaurant": "Scoopy"
+            "favouriteFood": "Chips"
         }
     ]
 }

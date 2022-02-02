@@ -23,7 +23,7 @@ import styles from './calculator.module.css';
 
 */
 
-export default function calculator(): JSX.Element {
+export default function Calculator(): JSX.Element {
     const numberPadValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
     const [previousOperand, setPreviousOperand] = useState('');

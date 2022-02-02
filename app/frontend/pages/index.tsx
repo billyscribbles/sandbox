@@ -4,7 +4,7 @@ import Layout, { siteTitle } from '../src/components/layout';
 import utilStyles from '../src/styles/utils.module.css';
 import { getSortedPostsData } from '../src/lib/posts';
 import Link from 'next/link';
-import Date from '../src/components/date';
+import FormattedDate from '../src/utils/formattedDate';
 import { GetStaticProps } from 'next';
 
 //TODO: JUST SAMPLE CODE - TO BE DELETED
@@ -20,6 +20,8 @@ export type HomeProps = {
 };
 
 export default function Home({ allPostsData }: HomeProps): JSX.Element {
+    const today = new Date().toISOString().split('T')[0];
+
     return (
         <Layout home>
             <Head>
@@ -43,29 +45,18 @@ export default function Home({ allPostsData }: HomeProps): JSX.Element {
                             </Link>
                             <br />
                             <small className={utilStyles.lightText}>
-                                <Date dateString={date} />
+                                <FormattedDate dateString={date} />
                             </small>
                         </li>
                     ))}
-                </ul>
-
-                <br />
-                <h2 className={utilStyles.headingLg}>Venues</h2>
-                <ul className={utilStyles.list}>
-                    <li>
-                        <Link href={`/venues/1`}>
-                            <a>Sook Thai Kitchen</a>
+                    <li className={utilStyles.listItem}>
+                        <Link href={`/demo`}>
+                            <a>Demo</a>
                         </Link>
-                    </li>
-                    <li>
-                        <Link href={`/venues/2`}>
-                            <a>Scoopy</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href={`/venues/3`}>
-                            <a>Taco 101</a>
-                        </Link>
+                        <br />
+                        <small className={utilStyles.lightText}>
+                            <FormattedDate dateString={today} />
+                        </small>
                     </li>
                 </ul>
             </section>

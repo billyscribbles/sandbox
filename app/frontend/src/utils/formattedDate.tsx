@@ -5,7 +5,7 @@ export type DateProps = {
     dateString: string;
 };
 
-export default function Date({ dateString }: DateProps): JSX.Element {
+export default function FormattedDate({ dateString }: DateProps): JSX.Element {
     const date = parseISO(dateString);
     return <time dateTime={dateString}>{format(date, 'LLLL d, yyyy')}</time>;
 }

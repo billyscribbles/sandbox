@@ -1,0 +1,9 @@
+.container {
+    padding: 1rem;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 24px;
+    border: 1px solid lightgray;
+}

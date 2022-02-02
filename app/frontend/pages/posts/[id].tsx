@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../../src/components/layout';
 import { getAllPostIds, getPostData } from '../../src/lib/posts';
 import Head from 'next/head';
-import Date from '../../src/components/date';
+import FormattedDate from '../../src/utils/formattedDate';
 import utilStyles from '../../src/styles/utils.module.css';
 import { GetStaticProps, GetStaticPaths } from 'next';
 
@@ -43,7 +43,7 @@ export default function Post({
             <article>
                 <h1 className={utilStyles.headingXl}>{postData.title}</h1>
                 <div className={utilStyles.lightText}>
-                    <Date dateString={postData.date} />
+                    <FormattedDate dateString={postData.date} />
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
             </article>
